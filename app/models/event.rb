@@ -1,11 +1,10 @@
 class Event < ApplicationRecord
   belongs_to :day
-  validate :name,:start,:done,:startBefore,:namelength,:minend,:minstart,:timeConflict,:day,:description
+  validate :name,:start,:done,:startBefore,:namelength,:minend,:minstart,:timeConflict,:day
   before_save :default_values
   def default_values
     self.minend ||= 0 # note self.status = 'P' if self.status.nil? might be safer (per @frontendbeauty)
     self.minstart ||= 0
-    self.description ||= "This event does not have a description."
   end
   def startBefore
     if start >= done
