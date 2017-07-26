@@ -1,0 +1,115 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ */
+ @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Raleway');
+ table{
+   border: none;
+   padding: 0px;
+   margin:0px;
+ }
+ th{
+  background-color:  #ecf0f1;
+  font-size: 30px;
+  padding: 0px;
+  width: 75px;
+  text-align: center;
+  border:none;
+ }
+ td{
+  padding: 0px;
+  width:75px;
+  vertical-align: middle;
+ }
+ .days td:nth-child(even) {
+    background-color: #95a5a6;
+ }
+ .days td:nth-child(odd) {
+    background-color: #ecf0f1;
+ }
+ .hours tr:nth-child(even){
+    background-color: #c0392b;
+ }
+ .hours tr:nth-child(odd){
+    background-color: #e74c3c;
+ }
+ .hours tr{
+   color:white;
+ }
+ .filled{
+   background-color: #2c3e50;
+   width: 75px;
+   color: #ecf0f1;
+   font-size: 25px;
+   border-radius: 5px;
+   text-align: center;
+   text-decoration: none;
+   vertical-align: middle;
+ }
+ .filled:hover{
+   background-color: #34495e;
+ }
+ .newEvent{
+  color:white;
+  background-color: #27ae60;
+  text-align: center;
+ }
+ .newEvent>a{
+  text-decoration: none;
+  color:white;
+  text-align: center;
+ }
+ .newEvent:hover{
+  background-color: #2ecc71;
+ }
+ 
+ .list-group-item{
+  color:black;
+  text-decoration:none;
+ }
+ nav{
+  margin-bottom: 20px !important;
+  padding: 20px !important;
+  font-family: 'Raleway', sans-serif !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+ }
+ 
+ .create{
+  width:100%;
+  font-size:15px;
+ }
+ .navbar-brand{
+  font-size: 40px;
+  font-family: 'Raleway', sans-serif;
+  margin-right: 9px !important;
+ }
+ .nav-item{
+  margin: 10px !important;
+  font-size: 30px;
+ }
+ .dropdown-menu{
+  font-size: 20px !important;
+  border: none;
+  background-color:#f7f7f7;
+ }
+ @media (min-width: 992px){
+    .dropdown-menu>a:hover{
+     background-color:#ffffff;
+    }
+    /*
+     * styles go here
+     */
+ } 
+body{
+ font-family: 'Raleway', sans-serif !important;
+}

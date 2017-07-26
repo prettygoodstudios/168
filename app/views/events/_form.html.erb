@@ -1,0 +1,33 @@
+<%= form_for(event) do |f| %>
+  <%= render "shared/alerts" %>
+  <h2>Day is <%= $day %></h2>
+  <div class="form-group">
+    <%= f.label :name, "Name of Event" %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, "Description" %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <h2>Start Time</h2>
+    <%= f.label :start, "Hour" %>
+    <% starting = event.start %>
+    <% starting ||= 0 %>
+    <%= f.select :start, options_for_select((0..24).map{|i| amPm i}.collect.with_index.to_a,[amPm(starting),starting.round]), class: 'form-control' %>
+    <%= f.label :minstart, "Minute" %>
+    <%= f.select :minstart, options_for_select((0..59),event.minstart), class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <h2>End Time</h2>
+    <%= f.label :done, "Hour" %>
+    <% ending = event.done %>
+    <% ending ||= 0 %>
+    <%= f.select :done, options_for_select((0..24).map{|i| amPm i}.collect.with_index.to_a,[amPm(ending),ending.round]), class: 'form-control' %>
+    <%= f.label :minend, "Minute" %>
+    <%= f.select :minend, options_for_select((0..59),event.minend), class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Submit", class:'btn btn-success btn-block' %>
+  </div>
+<% end %>

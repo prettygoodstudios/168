@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <h2><%= current_user.email %> Schedule</h2>
+  <h3>Weeks</h3>
+  <%= link_to "Create Week", new_week_path, class: 'btn btn-success' %>
+  <hr>
+  <%= weeks_helper @weeks %>
+<% else %>
+  
+  <h3>You must be logged in to use the scheduler.</h3>
+<% end %>
