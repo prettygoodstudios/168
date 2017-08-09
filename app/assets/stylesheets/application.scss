@@ -349,3 +349,21 @@ nav{
  font-size: 20px;
  width: 100%;
 }
+/*Event Show Page*/
+.event-show{
+ color: white;
+}
+.event-inner{
+ padding: 20px;
+ border-radius: 20px;
+ background-color: white;
+ color: black;
+}
+.event-link{
+ color: black;
+ font-size: 30px;
+}
+.event-link:hover{
+ color: gray;
+ text-decoration: none;
+}

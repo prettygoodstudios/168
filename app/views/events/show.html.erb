@@ -1,10 +1,11 @@
-<h1><%= @event.name %></h1>
-<h2><%= Day.find(@event.day_id).name %> </h2>
-<h4><%= find_date Week.find(Day.find(@event.day_id).week_id), Day.find(@event.day_id) %></h4>
-<p><%= amPm @event.start, min: @event.minstart %> - <%= amPm @event.done, min: @event.minend %></p>
-<div class="btn-group" role="group" aria-label="Basic example">
-  <%= link_to "Edit", edit_event_path(@event.id), class: 'btn btn-success' %>
-  <%= link_to "Delete", event_path(@event.id,week: Day.find(@event.day_id).week_id), method: :delete, class:'btn btn-danger' %>
-  <%= link_to "Back to Schedule", week_path(Week.find(Day.find(@event.day_id).week_id).id), class: 'btn btn-danger' %>
+<div class="schedule event-show">
+  <h1><%= @event.name %></h1>
+  <div class="event-inner">
+    <h3><%= Day.find(@event.day_id).name %>, <%= (find_date Week.find(Day.find(@event.day_id).week_id), Day.find(@event.day_id)).to_formatted_s(:long) %></h4>
+    <h4><%= amPm @event.start, min: @event.minstart %> - <%= amPm @event.done, min: @event.minend %></h4>
+    <p><%= @event.description %></p>
+    <%= link_to fa_icon("pencil"), edit_event_path(@event.id), class: 'event-link' %>
+    <%= link_to fa_icon("trash"), event_path(@event.id,week: Day.find(@event.day_id).week_id), method: :delete, class:'event-link' %>
+    <%= link_to fa_icon("arrow-left"), week_path(Week.find(Day.find(@event.day_id).week_id).id), class: 'event-link' %>
+  </div>
 </div>
-<p><%= @event.description %></p>
