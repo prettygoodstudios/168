@@ -333,10 +333,13 @@ nav{
 }
 .foot-social>li{
  display: inline;
+}
+.foot-social>li>a{
+ display: inline;
  font-size: 50px;
  color: black;
 }
-.foot-social>li:hover{
+.foot-social>li>a:hover{
  text-decoration: none;
  color: gray;
 }

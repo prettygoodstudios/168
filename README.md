@@ -1,24 +1,7 @@
-# README
+#Mon
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Mon is a open source scheduling rails app created by Miguel Rust. Mon remembers your most important events so you dont have to.
 
-Things you may want to cover:
+##Making Modifications and Redistributing Mon
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You may make all modifications to Mon as you would like. You may also redistribute Mon and use it for commercial purposes. 
