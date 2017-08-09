@@ -50,6 +50,11 @@ module ApplicationHelper
         res += "</div></div><div class='col-md-6 event-half'><div class='row'>".html_safe
       end
       res += "<div class='day col-md-3'><div class='title'><h1>#{Date::DAYNAMES[day]}</h1> #{link_to fa_icon("plus-square-o"), new_event_path(day: Date::DAYNAMES[day],week: week),class: "add-week"}</div><div class='time-slot'>".html_safe
+      if day % 2 == 0
+        res += "<div class='cal-stripe' style='background-color:#ffffff'></div>".html_safe
+      else 
+        res += "<div class='cal-stripe' style='background-color:#efebe9'></div>".html_safe
+      end
       if week.days.find_by_name(Date::DAYNAMES[day]).events.size != 0
         tally = 0
         week.days.find_by_name(Date::DAYNAMES[day]).events.each do |event|
