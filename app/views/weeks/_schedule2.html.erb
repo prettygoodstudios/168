@@ -1,0 +1,16 @@
+<div class="schedule">
+  <center><h1 style="font-size:30px;color:white;"><%= @week.start %> to <%= add_week @week.start %></h1></center>
+  <div class="row">
+    <div class='col-md-6 event-half'><div class='row'>
+    <div class="hours col-md-3">
+      <div class="title">
+        <h1>Time</h1>
+      </div>
+      <ul>
+        <%= realTimeline %>
+        <!-- Here is where the hour labels will go! -->
+      </ul>
+    </div>
+  <%= render_event week %>
+  </div>
+</div>

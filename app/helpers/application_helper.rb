@@ -3,19 +3,19 @@ module ApplicationHelper
     if user_signed_in?
       render partial: "shared/profile"
     else
-      ("<li class='nav-item'>".html_safe + (link_to "Login", new_user_session_path, class: 'nav-link') + "</li><li class='nav-item'>".html_safe + (link_to "Register", new_user_registration_path, class: 'nav-link'))
+      ("<li>".html_safe + (link_to "Login", new_user_session_path, class: 'nav-option') + "</li><li>".html_safe + (link_to "Register", new_user_registration_path, class: 'nav-option'))
     end
   end
   def weeks_helper weeks
     if user_signed_in?
-      display = "<ul class='list-group'>".html_safe
+      display = "<ul class='week-list'>".html_safe
       weeks.each do |week|
-        display += "<li class='list-group-item'>".html_safe
+        display += "<li class='week-item'>".html_safe
         startDate = week.start.strftime("%a, %d %b %Y").html_safe
-        display += "<span>#{startDate}</span>".html_safe
-        display += link_to "View", "weeks/#{week.id}", class: 'btn btn-success', style:'margin-left:50px;'
-        display += link_to "Delete", week_path(week.id),class: 'btn btn-danger',style:'margin-left:5px;', method: :delete
-        display += "</li>".html_safe
+        display += "<span>#{startDate}</span><div class='option-group'>".html_safe
+        display += link_to fa_icon("eye"), "weeks/#{week.id}", class: 'week-option', style:'margin-left:50px;'
+        display += link_to fa_icon("trash"), week_path(week.id),class: 'week-option',style:'margin-left:5px;', method: :delete
+        display += "</div></li>".html_safe
       end
       display += "</ul>".html_safe
       return display
@@ -40,6 +40,30 @@ module ApplicationHelper
       end
       res += "</ul></li>".html_safe
     end
+    res
+  end
+  
+  def render_event week
+    res = "".html_safe
+    7.times do |day|
+      if day == 3
+        res += "</div></div><div class='col-md-6 event-half'><div class='row'>".html_safe
+      end
+      res += "<div class='day col-md-3'><div class='title'><h1>#{Date::DAYNAMES[day]}</h1> #{link_to fa_icon("plus-square-o"), new_event_path(day: Date::DAYNAMES[day],week: week),class: "add-week"}</div><div class='time-slot'>".html_safe
+      if week.days.find_by_name(Date::DAYNAMES[day]).events.size != 0
+        tally = 0
+        week.days.find_by_name(Date::DAYNAMES[day]).events.each do |event|
+          tally += 1
+          res += "<div class='event' style='top:#{event.start*100+event.minstart*10/6}px;width:100%;height:#{(event.done-event.start)*100+(event.minend-event.minstart)*10/6}px' data-start='#{event.start.to_s}:#{event.minstart.to_s}' data-begin='#{amPm event.start,min: event.minstart}' data-done='#{amPm event.done,min: event.minend}' data-end='#{event.done.to_s}:#{event.minend}'>".html_safe
+          res += link_to event.name , event_path(event.id)
+          res += "<p>#{amPm event.start, min: event.minstart} - #{amPm event.done, min: event.minend}</p>".html_safe
+          res += "</div>".html_safe
+        end
+      end
+      res += "</div></div>".html_safe
+    end
+    #res += "<div class='col-md-3 hours'><div class='title'><h1>Time</h1></div><ul>#{ realTimeline }</ul></div>".html_safe
+    res += "</div></div>".html_safe
     res
   end
   def find_date week, day

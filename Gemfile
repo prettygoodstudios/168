@@ -56,3 +56,4 @@ gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'sprockets-rails', '~> 3.2'
 gem 'jquery-rails'
+gem "font-awesome-rails"

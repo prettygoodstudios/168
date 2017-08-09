@@ -1,9 +1,9 @@
-<li class="nav-item dropdown pull-right">
-  <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<li class="profile-item">
+  <button class="nav-option profile-toggle" >
    <%= current_user.email %><img src='<%= gravatar_url(current_user.email,30) %>' style='border-radius:50%;'>
-  </a>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-    <%= link_to "Edit Profile", edit_user_registration_path, class: 'dropdown-item' %>
-  </div>
+  </button>
+  <ul class="profile-menu">
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'profile-option' %>
+    <%= link_to "Edit Profile", edit_user_registration_path, class: 'profile-option' %>
+  </ul>
 </li>

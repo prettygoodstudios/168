@@ -1,10 +1,13 @@
-<% if user_signed_in? %>
-  <h2><%= current_user.email %> Schedule</h2>
-  <h3>Weeks</h3>
-  <%= link_to "Create Week", new_week_path, class: 'btn btn-success' %>
-  <hr>
-  <%= weeks_helper @weeks %>
-<% else %>
-  
-  <h3>You must be logged in to use the scheduler.</h3>
-<% end %>
+<div class="schedule">
+  <% if user_signed_in? %>
+    <h1 class='index-title'>Schedule</h1>
+    <h2 class='user-email'><%= current_user.email %></h2>
+    <%= link_to fa_icon("plus-square-o"), new_week_path, class: 'add-week' %>
+    <hr>
+    <h3 class='index-title'>Weeks</h3>
+    <%= weeks_helper @weeks %>
+  <% else %>
+    
+    <h3>You must be logged in to use the scheduler.</h3>
+  <% end %>
+</div>
