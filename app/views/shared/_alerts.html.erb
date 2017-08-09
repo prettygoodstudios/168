@@ -1,12 +1,12 @@
 <% if alert != nil || notice != nil %>
-  <div class="alert alert-info" role="alert">
+  <div class="prompt" role="alert">
     <%= notice %>
     <%= alert %>
   </div>
 <% end %>
 <% if defined? errors %>
   <% errors.messages.each_value do |e| %>
-    <div class="alert alert-info" role="alert">
+    <div class="prompt" role="alert">
       <%= e.value %>
     </div>
   <% end %>
