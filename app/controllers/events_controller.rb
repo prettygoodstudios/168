@@ -14,7 +14,7 @@ class EventsController < ActionController::Base
     @event = Event.find(params[:id])
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Your Post Is Updated.' }
+        format.html { redirect_to @event, notice: 'Your Event Is Updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }

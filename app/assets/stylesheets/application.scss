@@ -349,6 +349,18 @@ nav{
  font-size: 20px;
  width: 100%;
 }
+.error_explanation{
+ background-color: #C75850;
+ color: white;
+ border-radius: 20px;
+ margin-bottom: 10px;
+ padding: 10px;
+ font-size: 20px;
+ width: 100%;
+}
+.new_user>.error_explanation>h2{
+ display: none;
+}
 /*Event Show Page*/
 .event-show{
  color: white;
@@ -366,4 +378,28 @@ nav{
 .event-link:hover{
  color: gray;
  text-decoration: none;
+}
+/*Button Styling*/
+.btn-main{
+ border-radius: 5px;
+ padding: 5px;
+ font-size: 20px;
+ color: black;
+ background-color: white;
+}
+.btn-main:hover{
+ color: white;
+ text-decoration: none;
+}
+.btn-red{
+ border: 1px solid #C75850;
+}
+.btn-red:hover{
+ background-color: #C75850;
+}
+.btn-green{
+ border: 1px solid #2ecc71;
+}
+.btn-green:hover{
+ background-color: #2ecc71;
 }
